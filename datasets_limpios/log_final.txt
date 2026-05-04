@@ -1,6 +1,6 @@
 ============================================================
   REPORTE FINAL — Pipeline de Marketing
-  Generado: 2026-05-04 11:36:36
+  Generado: 2026-05-04 11:42:13
 ============================================================
 
 ── ENERO (Dataset de referencia) ──
@@ -122,7 +122,7 @@
 ────────────────────────────────────────────────────────────
   RESUMEN EJECUTIVO (generado por Gemini)
 ────────────────────────────────────────────────────────────
-[Gemini no disponible: 400 POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?%24alt=json%3Benum-encoding%3Dint: API key not valid. Please pass a valid API key.]
+[Gemini no disponible: 404 POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?%24alt=json%3Benum-encoding%3Dint: models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.]
 
 ============================================================
   Archivos generados en: datasets_limpios
