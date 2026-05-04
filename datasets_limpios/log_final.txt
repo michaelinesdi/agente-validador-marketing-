@@ -1,0 +1,129 @@
+============================================================
+  REPORTE FINAL — Pipeline de Marketing
+  Generado: 2026-05-04 10:55:05
+============================================================
+
+── ENERO (Dataset de referencia) ──
+   Dimensiones finales: 2240 filas × 29 cols
+   Acciones realizadas:
+     [ESTRUCTURA - ERROR] Client ID: Columna llamada 'Client ID'. Debe renombrarse a 'CustomerID'.
+     [CustomerID - OK] Sin duplicados. 2240 IDs únicos.
+     [Year_Birth - ERROR] 3 años < 1940: [1893, 1899, 1900]. Errores de captura.
+     [Education - OK] 5 categorías. Sin valores fuera de dominio.
+     [Marital_Status - ERROR] Categorías inválidas: {'Widow': 77, 'Absurd': 2, 'YOLO': 2}. No pertenecen al dominio esperado.
+     [Marital_Status - WARN] 'Alone' en 3 filas. Probablemente equivale a 'Single'. Verificar.
+     [Income - ERROR] 24 nulos (1.1%). Imputar con mediana = $51,382.
+     [Income - ERROR] 8 outliers extremos (> 3σ = $127,766). Máximo detectado: $666,666.
+     [Kidhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Teenhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Dt_Customer - WARN] 1324 fechas no parseables.
+     [Recency - OK] Sin anomalías. Rango: 0–99.
+     [MntWines - WARN] 16 outliers (> 3σ). Máximo = 1493.
+     [MntFruits - WARN] 64 outliers (> 3σ). Máximo = 199.
+     [MntMeatProducts - WARN] 37 outliers (> 3σ). Máximo = 1725.
+     [MntFishProducts - WARN] 58 outliers (> 3σ). Máximo = 259.
+     [MntSweetProducts - WARN] 62 outliers (> 3σ). Máximo = 263.
+     [MntGoldProds - WARN] 44 outliers (> 3σ). Máximo = 362.
+     [NumDealsPurchases - WARN] 32 outliers (> 3σ). Máximo = 15.
+     [NumWebPurchases - WARN] 4 outliers (> 3σ). Máximo = 27.
+     [NumCatalogPurchases - WARN] 4 outliers (> 3σ). Máximo = 28.
+     [NumStorePurchases - OK] Sin anomalías. Rango: 0–13.
+     [NumWebVisitsMonth - WARN] 9 outliers (> 3σ). Máximo = 20.
+     [AcceptedCmp3 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp4 - OK] Binaria OK. Tasa positiva: 7.5%.
+     [AcceptedCmp5 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp1 - OK] Binaria OK. Tasa positiva: 6.4%.
+     [AcceptedCmp2 - OK] Binaria OK. Tasa positiva: 1.3%.
+     [Complain - OK] Binaria OK. Tasa positiva: 0.9%.
+     [Z_CostContact - WARN] Columna constante (valor = 3 en el 100% de filas). No aporta al modelo.
+     [Z_Revenue - WARN] Columna constante (valor = 11 en el 100% de filas). No aporta al modelo.
+     [Response - OK] Binaria OK. Tasa positiva: 14.9%.
+     [Response - WARN] Clase desbalanceada (14.9% positivos). Considerar SMOTE o class_weight.
+
+── FEBRERO (Dataset procesado) ──
+   Dimensiones finales: 2240 filas × 32 cols
+   Acciones realizadas:
+     [ESTRUCTURA - ERROR] Client ID: Columna llamada 'Client ID'. Debe renombrarse a 'CustomerID'.
+     [ESTRUCTURA - ERROR] Mes: Columna basura 'Mes' sin valor para el modelo. Eliminar.
+     [ESTRUCTURA - ERROR] Columna Extra D: Columna basura 'Columna Extra D' sin valor para el modelo. Eliminar.
+     [ESTRUCTURA - ERROR] Columna Extra M: Columna basura 'Columna Extra M' sin valor para el modelo. Eliminar.
+     [CustomerID - OK] Sin duplicados. 2240 IDs únicos.
+     [Year_Birth - ERROR] 3 años < 1940: [1893, 1899, 1900]. Errores de captura.
+     [Education - OK] 5 categorías. Sin valores fuera de dominio.
+     [Marital_Status - ERROR] Categorías inválidas: {'Widow': 77, 'Absurd': 2, 'YOLO': 2}. No pertenecen al dominio esperado.
+     [Marital_Status - WARN] 'Alone' en 3 filas. Probablemente equivale a 'Single'. Verificar.
+     [Income - ERROR] 24 nulos (1.1%). Imputar con mediana = $51,382.
+     [Income - ERROR] 8 outliers extremos (> 3σ = $127,766). Máximo detectado: $666,666.
+     [Kidhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Teenhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Dt_Customer - WARN] 1324 fechas no parseables.
+     [Recency - OK] Sin anomalías. Rango: 0–99.
+     [MntWines - WARN] 16 outliers (> 3σ). Máximo = 1493.
+     [MntFruits - WARN] 64 outliers (> 3σ). Máximo = 199.
+     [MntMeatProducts - WARN] 37 outliers (> 3σ). Máximo = 1725.
+     [MntFishProducts - WARN] 58 outliers (> 3σ). Máximo = 259.
+     [MntSweetProducts - WARN] 62 outliers (> 3σ). Máximo = 263.
+     [MntGoldProds - WARN] 44 outliers (> 3σ). Máximo = 362.
+     [NumDealsPurchases - WARN] 32 outliers (> 3σ). Máximo = 15.
+     [NumWebPurchases - WARN] 4 outliers (> 3σ). Máximo = 27.
+     [NumCatalogPurchases - WARN] 4 outliers (> 3σ). Máximo = 28.
+     [NumStorePurchases - OK] Sin anomalías. Rango: 0–13.
+     [NumWebVisitsMonth - WARN] 9 outliers (> 3σ). Máximo = 20.
+     [AcceptedCmp3 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp4 - OK] Binaria OK. Tasa positiva: 7.5%.
+     [AcceptedCmp5 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp1 - OK] Binaria OK. Tasa positiva: 6.4%.
+     [AcceptedCmp2 - OK] Binaria OK. Tasa positiva: 1.3%.
+     [Complain - OK] Binaria OK. Tasa positiva: 0.9%.
+     [Z_CostContact - WARN] Columna constante (valor = 3 en el 100% de filas). No aporta al modelo.
+     [Z_Revenue - WARN] Columna constante (valor = 11 en el 100% de filas). No aporta al modelo.
+     [Response - OK] Binaria OK. Tasa positiva: 14.9%.
+     [Response - WARN] Clase desbalanceada (14.9% positivos). Considerar SMOTE o class_weight.
+
+── MARZO (Dataset procesado) ──
+   Dimensiones finales: 2240 filas × 31 cols
+   Acciones realizadas:
+     [ESTRUCTURA - ERROR] Client ID: Columna llamada 'Client ID'. Debe renombrarse a 'CustomerID'.
+     [ESTRUCTURA - ERROR] Mes: Columna basura 'Mes' sin valor para el modelo. Eliminar.
+     [ESTRUCTURA - ERROR] Columna Extra D: Columna basura 'Columna Extra D' sin valor para el modelo. Eliminar.
+     [ESTRUCTURA - ERROR] Columna Extra M: Columna basura 'Columna Extra M' sin valor para el modelo. Eliminar.
+     [ESTRUCTURA - CRITICAL] Response: VARIABLE OBJETIVO AUSENTE. 'Response' no existe en este archivo. No apto para entrenamiento.
+     [CustomerID - OK] Sin duplicados. 2240 IDs únicos.
+     [Year_Birth - ERROR] 3 años < 1940: [1893, 1899, 1900]. Errores de captura.
+     [Education - OK] 5 categorías. Sin valores fuera de dominio.
+     [Marital_Status - ERROR] Categorías inválidas: {'Widow': 77, 'Absurd': 2, 'YOLO': 2}. No pertenecen al dominio esperado.
+     [Marital_Status - WARN] 'Alone' en 3 filas. Probablemente equivale a 'Single'. Verificar.
+     [Income - ERROR] 24 nulos (1.1%). Imputar con mediana = $51,382.
+     [Income - ERROR] 8 outliers extremos (> 3σ = $127,766). Máximo detectado: $666,666.
+     [Kidhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Teenhome - OK] Sin analizador específico. Sin anomalías detectadas.
+     [Dt_Customer - WARN] 1324 fechas no parseables.
+     [Recency - OK] Sin anomalías. Rango: 0–99.
+     [MntWines - WARN] 16 outliers (> 3σ). Máximo = 1493.
+     [MntFruits - WARN] 64 outliers (> 3σ). Máximo = 199.
+     [MntMeatProducts - WARN] 37 outliers (> 3σ). Máximo = 1725.
+     [MntFishProducts - WARN] 58 outliers (> 3σ). Máximo = 259.
+     [MntSweetProducts - WARN] 62 outliers (> 3σ). Máximo = 263.
+     [MntGoldProds - WARN] 44 outliers (> 3σ). Máximo = 362.
+     [NumDealsPurchases - WARN] 32 outliers (> 3σ). Máximo = 15.
+     [NumWebPurchases - WARN] 4 outliers (> 3σ). Máximo = 27.
+     [NumCatalogPurchases - WARN] 4 outliers (> 3σ). Máximo = 28.
+     [NumStorePurchases - OK] Sin anomalías. Rango: 0–13.
+     [NumWebVisitsMonth - WARN] 9 outliers (> 3σ). Máximo = 20.
+     [AcceptedCmp3 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp4 - OK] Binaria OK. Tasa positiva: 7.5%.
+     [AcceptedCmp5 - OK] Binaria OK. Tasa positiva: 7.3%.
+     [AcceptedCmp1 - OK] Binaria OK. Tasa positiva: 6.4%.
+     [AcceptedCmp2 - OK] Binaria OK. Tasa positiva: 1.3%.
+     [Complain - OK] Binaria OK. Tasa positiva: 0.9%.
+     [Z_CostContact - WARN] Columna constante (valor = 3 en el 100% de filas). No aporta al modelo.
+     [Z_Revenue - WARN] Columna constante (valor = 11 en el 100% de filas). No aporta al modelo.
+
+────────────────────────────────────────────────────────────
+  RESUMEN EJECUTIVO (generado por Gemini)
+────────────────────────────────────────────────────────────
+[Gemini no disponible: 400 POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?%24alt=json%3Benum-encoding%3Dint: API key not valid. Please pass a valid API key.]
+
+============================================================
+  Archivos generados en: datasets_limpios
+============================================================
